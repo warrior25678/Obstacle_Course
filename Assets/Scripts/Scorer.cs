@@ -4,10 +4,19 @@ using UnityEngine;
 
 public class Scorer : MonoBehaviour
 {
-    int score = 0;
+    ScoreKeeper scoreKeeper;
+    GameManager gameManager;
+    private void Awake()
+    {
+        gameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
+        scoreKeeper = FindObjectOfType<ScoreKeeper>();
+    }
     private void OnCollisionEnter(Collision other)
     {
-        score++;
-        Debug.Log("You've bumped into this many objects: " + score);
+        scoreKeeper.IncreaseScore();
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        gameManager.LoadGameOver();
     }
 }
