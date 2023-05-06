@@ -14,10 +14,12 @@ public class GameManager : MonoBehaviour
     public void LoadGame()
     {
         scoreKeeper.ResetScore();
+        scoreKeeper.isPlaying = true;
         SceneManager.LoadScene("MainGame");
     }
     public void LoadGameOver()
     {
+        scoreKeeper.isPlaying = false;
         StartCoroutine(LoadAfterDelay("GameOver", loadDelay));
     }
     public void LoadMenu()

@@ -242,6 +242,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 272933578}
+  timerText: {fileID: 341452427}
 --- !u!1 &272933576
 GameObject:
   m_ObjectHideFlags: 0

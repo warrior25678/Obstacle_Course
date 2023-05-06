@@ -7,6 +7,7 @@ using TMPro;
 public class GameUI : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI scoreText;
+    [SerializeField] TextMeshProUGUI timerText;
     ScoreKeeper scoreKeeper;
     private void Awake()
     {
@@ -14,6 +15,8 @@ public class GameUI : MonoBehaviour
     }
     private void Update()
     {
+        float timeElapsed = scoreKeeper.GetTimer();
         scoreText.text = ("Score: " + scoreKeeper.GetScore());
+        timerText.text = (((int)timeElapsed / 60).ToString() + ":" + (timeElapsed % 60).ToString("f2"));
     }
 }
